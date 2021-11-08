@@ -16,11 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/* Rutas de los links--------------------------------------------------- */
+Route::get('/empresas',function(){
+    return view('buscador');
+    
+})->name('empresas');
+Route::get('/convocatorias',function(){
+    return view('convocatoria');
+    
+})->name('convocatorias');
+/*---------------------------------------------------------------------*/
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
