@@ -36,14 +36,14 @@ class EmpresaController extends Controller
     {
         $empresas = Empresa::find($id);
 
-        return view('empresa.show', compact('empresas'));
+        return view('empresa.show', compact('empresa'));
     }
 
     public function edit($id)
     {
         $empresas = Empresa::find($id);
 
-        return view('empresa.edit', compact('empresas'));
+        return view('empresa.edit', compact('empresa'));
     }
 
     public function update(Request $request, Empresa $empresas)
