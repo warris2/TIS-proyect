@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CrearEmpresaController;
+use App\Http\Controllers\ArchivoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +18,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 /* Rutas de los links--------------------------------------------------- */
-Route::get('/empresas',function(){
-    return view('buscador');
+// Route::get('/addEmpresa',function(){
+//     return view('addEmpresa');
     
-})->name('empresas');
+// })->name('addEmpresa');
+
+// Route::get('/listEmpresas',function(){
+//      return view('listEmp');
+    
+// })->name('listEmpresa');
+// Route::get('/listEmpresas', App\Http\Controllers\CrearEmpresaController@index);
+// Route::post('empresas', App\Http\Controllers\CrearEmpresaController@store);
+Route::get('/listaConv',function(){
+    return view('listaConv');
+})->name('convocatorias');
+
+Route::get('/addPropuesta',function(){
+    return view('addPropuesta');
+})->name('convocatorias');
+
+Route::get('/listaPropuesta',function(){
+    return view('listaPropuesta');
+})->name('convocatorias');
+
 Route::get('/convocatorias',function(){
     return view('convocatoria');
     
@@ -29,6 +48,10 @@ Route::get('/convocatorias',function(){
 /*---------------------------------------------------------------------*/
 Auth::routes();
 
+Route::resource('/empresas',App\Http\Controllers\EmpresaController::class);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('empresas', 'App\Http\Controllers\CrearEmpresaController@store');
+Route::put('convocatorias', App\Http\Controllers\ArchivoController::class);
+
+
